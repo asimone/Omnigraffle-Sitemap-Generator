@@ -1,6 +1,6 @@
 Omnigraffle Sitemap Generator: README file
 
-This script takes a Sitemap.xml file and creates a graphical sitemap for it in Omnigraffle 5. It requires a standard XML sitemap and should work with most any version of the specification. The resulting sitemap will contain hyperlinked objects for each page of the website defined in the sitemap.
+This script takes a Sitemap.xml file and creates a graphical sitemap for it in Omnigraffle 5 (NOT Professional). It requires a standard XML sitemap and should work with most any version of the specification. The resulting sitemap will contain hyperlinked objects for each page of the website defined in the sitemap.
 
 This sitemap is based on the URL hierarchy, rather than on in-page links, so it may not be ideal for some websites. It will also fail to index pages that do not exist in the sitemap, which will vary from site-to-site. (A useful improvement would be to add a comprehensive website crawler script to generate the URL list, rather than relying entirely on this XML file)
 
