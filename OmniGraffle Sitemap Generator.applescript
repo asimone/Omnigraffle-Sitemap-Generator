@@ -166,12 +166,11 @@ on run
 	
 	set text item delimiters to savedDelimiters
 	
-	cleanupSitemap()
 end run
 
 -- function that draws each type of box
 on makeShape(aURL)
-	tell application "OmniGraffle Professional 5"
+	tell application "OmniGraffle 5"
 		tell canvas of front window
 			set sText to last text item of aURL
 			set sNotes to ""
@@ -191,7 +190,7 @@ on makeShape(aURL)
 end makeShape
 
 on findShape(aURL)
-	tell application "OmniGraffle Professional 5"
+	tell application "OmniGraffle 5"
 		set matchingShapes to shapes of canvas of front window whose url is aURL
 		if (count of matchingShapes) is greater than 0 then
 			return item 1 of matchingShapes
@@ -200,7 +199,7 @@ on findShape(aURL)
 end findShape
 
 on drawConnectingLine(aSource, aDestination)
-	tell application "OmniGraffle Professional 5"
+	tell application "OmniGraffle 5"
 		tell aSource
 			set aLine to connect to aDestination
 		end tell
@@ -209,7 +208,7 @@ on drawConnectingLine(aSource, aDestination)
 end drawConnectingLine
 
 on makeNewSitemap()
-	tell application "OmniGraffle Professional 5"
+	tell application "OmniGraffle 5"
 		activate
 		make new document with properties {template:documentTemplate}
 		tell layout info of canvas of front window
@@ -218,25 +217,4 @@ on makeNewSitemap()
 		end tell
 	end tell
 end makeNewSitemap
-
-on cleanupSitemap()
-	
-	-- Style all objects using UI scripting
-	tell application "System Events"
-		tell (first application process whose name is "Omnigraffle Professional")
-			set frontmost to true
-			click menu item "Select All" of menu "Edit" of menu bar 1
-			click menu item "Restyle Selected Objects" of menu "Format" of menu bar 1
-		end tell
-	end tell
-	
-	tell application "OmniGraffle Professional 5"
-		
-		tell canvas of front window
-			layout
-			page adjust
-		end tell
-		
-	end tell
-end cleanupSitemap
 
